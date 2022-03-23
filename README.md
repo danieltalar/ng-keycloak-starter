@@ -5,7 +5,7 @@ This project contains starter Spring application connected with Keycloak server.
 ## Area to be explored in this project ##
 * Keycloak server setup ready to run using `docker` and `docker-compose` tools
 * Keycloak configuration for:
-	* realm with RS256 using public/private key
+	* realm authorization with RS256 using public/private key and OTP or optionally 2FA
 	* identity providers (i.e. Google)
 	* client/client scope
 	* roles/groups
