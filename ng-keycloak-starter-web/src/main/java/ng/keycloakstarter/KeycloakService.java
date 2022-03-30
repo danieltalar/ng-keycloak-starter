@@ -1,5 +1,6 @@
 package ng.keycloakstarter;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ng.keycloakstarter.config.Credentials;
 import ng.keycloakstarter.config.KeycloakConfig;
@@ -9,8 +10,10 @@ import org.keycloak.admin.client.resource.UsersResource;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 import javax.ws.rs.NotFoundException;
@@ -20,8 +23,11 @@ import java.util.List;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class KeycloakService {
 
+
+    private final KeycloakConfig keycloakConfig;
 
     @Value( "${keycloak.realm}" )
     private String realm;
@@ -97,7 +103,7 @@ public class KeycloakService {
     }
 
     private RealmResource getRealmResource() {
-        return KeycloakConfig.getInstance().realm(realm);
+        return keycloakConfig.getInstance().realm(realm);
     }
 
     private RolesResource getRolesResource() {

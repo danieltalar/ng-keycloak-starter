@@ -10,18 +10,18 @@ public class KeycloakConfig {
 
 
     @Value( "${app.admin.realm}" )
-    private static String realm;
+    private String realm;
     @Value( "${app.admin.clientId}" )
-    private static String clientId;
+    private String clientId;
     @Value( "${app.admin.user}" )
-    private static String user;
+    private String user;
     @Value( "${app.admin.password}" )
-    private static String password;
+    private String password;
     @Value( "${keycloak.auth-server-url}" )
-    private static String serverUrl;
+    private String serverUrl;
 
     @Bean
-    public static Keycloak getInstance(){
+    public Keycloak getInstance(){
             return Keycloak.getInstance(
                     serverUrl,
                     realm,

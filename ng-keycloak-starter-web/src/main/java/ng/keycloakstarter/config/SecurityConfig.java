@@ -1,6 +1,5 @@
 package ng.keycloakstarter.config;
 
-import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.KeycloakSecurityComponents;
 import org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider;
 import org.keycloak.adapters.springsecurity.config.KeycloakWebSecurityConfigurerAdapter;
@@ -34,6 +33,11 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 
     @Bean
     public KeycloakSpringBootConfigResolver KeycloakConfigResolver() {
+        return myImpl();
+     //   return new KeycloakSpringBootConfigResolver();
+    }
+
+    private KeycloakSpringBootConfigResolver myImpl() {
         return new KeycloakSpringBootConfigResolver();
     }
 
