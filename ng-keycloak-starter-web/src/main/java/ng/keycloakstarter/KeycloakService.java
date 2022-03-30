@@ -26,16 +26,6 @@ public class KeycloakService {
     @Value( "${keycloak.realm}" )
     private String realm;
 
-    @Value( "${keycloak.auth-server-url}" )
-    private String url;
-
-    @PostConstruct
-    public void init(){
-        System.out.println("URL");
-        System.out.println(realm);
-        System.out.println(url);
-    }
-
     public void addUser(UserDTO userDTO){
         CredentialRepresentation credential = Credentials
                 .createPasswordCredentials(userDTO.getPassword());

@@ -1,4 +1,4 @@
-package ng.keycloakstarter;
+package ng.keycloakstarter.config;
 
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.KeycloakSecurityComponents;
@@ -48,9 +48,9 @@ class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.authorizeRequests()
-          .antMatchers("/user*")
+          .antMatchers("/user*", "user/*")
           .hasRole("user")
-          .antMatchers("/admin*")
+          .antMatchers("/admin*","/admin/*")
           .hasRole("admin")
           .anyRequest()
           .permitAll();

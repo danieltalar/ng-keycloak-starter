@@ -19,12 +19,6 @@ public class KeycloakController {
         return "User Added Successfully.";
     }
 
-    @GetMapping
-    public String addddUser(){
-    //    service.addUser(userDTO);
-        return "User Added dddSuccessfully.";
-    }
-
     @GetMapping(path = "/{userName}")
     public List<UserRepresentation> getUser(@PathVariable("userName") String userName){
         return service.getUser(userName);

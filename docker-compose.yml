@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  keycloak:
+    container_name: local_keycloak
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    image: jboss/keycloak:17.0.1
+    ports:
+      - "28080:8080"
+    restart: unless-stopped
+    networks:
+      - local-keycloak
+
+networks:
+  local-keycloak:

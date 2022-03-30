@@ -14,11 +14,6 @@ import java.util.Set;
 @RequestMapping("/user")
 public class UserController {
 
-    @PostConstruct
-    public void init(){
-        System.out.println("TEST TEST TEST");
-    }
-
     @GetMapping(path = "/info")
     public String helloUser(Principal principal) {
         AccessToken accessToken = getAccessToken((KeycloakAuthenticationToken) principal);
