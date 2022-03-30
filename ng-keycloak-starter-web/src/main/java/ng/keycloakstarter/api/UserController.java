@@ -1,4 +1,4 @@
-package ng.keycloakstarter;
+package ng.keycloakstarter.api;
 
 import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
 import org.keycloak.representations.AccessToken;

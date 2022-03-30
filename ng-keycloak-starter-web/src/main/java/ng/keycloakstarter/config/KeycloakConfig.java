@@ -1,25 +1,31 @@
 package ng.keycloakstarter.config;
 
 import org.keycloak.admin.client.Keycloak;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class KeycloakConfig {
 
-    private static final String serverUrl = "http://localhost:8080/auth";
-    private static final String realm = "master";
-    private static final String clientId = "admin-cli";
-    private static final String userName = "admin";
-    private static final String password = "admin";
 
+    @Value( "${app.admin.realm}" )
+    private static String realm;
+    @Value( "${app.admin.clientId}" )
+    private static String clientId;
+    @Value( "${app.admin.user}" )
+    private static String user;
+    @Value( "${app.admin.password}" )
+    private static String password;
+    @Value( "${keycloak.auth-server-url}" )
+    private static String serverUrl;
 
     @Bean
     public static Keycloak getInstance(){
             return Keycloak.getInstance(
                     serverUrl,
                     realm,
-                    userName,
+                    user,
                     password,
                     clientId);
         }

@@ -6,7 +6,7 @@ services:
     environment:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
-    image: jboss/keycloak:17.0.1
+    image: jboss/keycloak
     ports:
       - "28080:8080"
     restart: unless-stopped

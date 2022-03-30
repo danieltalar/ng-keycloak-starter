@@ -1,6 +1,8 @@
-package ng.keycloakstarter;
+package ng.keycloakstarter.api;
 
 import lombok.AllArgsConstructor;
+import ng.keycloakstarter.KeycloakService;
+import ng.keycloakstarter.UserDTO;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.web.bind.annotation.*;
 
